@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            text-align: center;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+        .form-category {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .card {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            background: #0056b3;
+        }
+        .form-options {
+            display: none;
+            margin-top: 20px;
+        }
+        .form-button {
+            background: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .form-button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Interactive Page</h1>
+        <p>Select a form category:</p>
+        <div class="form-category">
+            <div class="card" onclick="showForms('Booking')">Booking</div>
+            <div class="card" onclick="showForms('Contact')">Contact</div>
+            <div class="card" onclick="showForms('Feedback')">Feedback</div>
+            <div class="card" onclick="showForms('Login')">Login</div>
+            <div class="card" onclick="showForms('Newsletter')">Newsletter</div>
+            <div class="card" onclick="showForms('Order')">Order</div>
+            <div class="card" onclick="showForms('Poll')">Poll</div>
+            <div class="card" onclick="showForms('Registration')">Registration</div>
+            <div class="card" onclick="showForms('Survey')">Survey</div>
+        </div>
+        <div class="form-options" id="formOptions">
+            <h2 id="formTitle"></h2>
+            <button class="form-button" id="formButton">Proceed to Form</button>
+        </div>
+    </div>
+    
+    <script>
+        function showForms(category) {
+            document.getElementById("formTitle").innerText = "You selected: " + category;
+            document.getElementById("formOptions").style.display = "block";
+            document.getElementById("formButton").onclick = function() {
+                window.location.href = category.toLowerCase() + ".html";
+            };
+        }
+    </script>
+</body>
+</html>
